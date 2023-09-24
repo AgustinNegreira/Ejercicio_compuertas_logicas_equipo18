@@ -1,21 +1,13 @@
-﻿using System.Reflection.Metadata;
-
-namespace Gates
+﻿namespace Gates
 {
-    public interface ILogicGate
+    public class NOTGates
     {
-        bool Evaluate();
-    }
-    public class NOTGate : ILogicGate
-    {
-        private ILogicGate input;
-        public NOTGate(ILogicGate input)
+        public static bool Evaluar(bool input1, bool input2)
         {
-            this.input = input;
-        }
-        public bool Evaluate()
-        {
-            return !input.Evaluate();
+            bool resultA = !input1;
+            bool resultB = !input2;
+
+            return resultA && resultB;
         }
     }
 }

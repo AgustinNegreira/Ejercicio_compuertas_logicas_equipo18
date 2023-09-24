@@ -1,18 +1,10 @@
 namespace Gates
 {
-    public class ORGate : ILogicGate
+     public class ORGates
     {
-        private ILogicGate input1;
-        private ILogicGate input2;
-
-        public ORGate(ILogicGate input)
+        public static bool Evaluar(bool input1, bool input2)
         {
-            this.input1 = input1;
-            this.input2 = input2;
-        }
-        public bool Evaluate()
-        {
-            return input1.Evaluate() || input2.Evaluate();
+            return input1 || input2;
         }
     }
 }

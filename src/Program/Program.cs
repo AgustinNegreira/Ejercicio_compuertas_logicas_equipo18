@@ -11,7 +11,7 @@ namespace ConsoleApplication
 {
     class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Ingrese el valor de la primera incógnita (true o false): ");
             bool input1 = bool.Parse(Console.ReadLine());
