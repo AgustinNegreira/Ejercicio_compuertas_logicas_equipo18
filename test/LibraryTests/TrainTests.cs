@@ -1,55 +1,36 @@
-//-----------------------------------------------------------------------------
-// <copyright file="TrainTests.cs" company="Universidad Católica del Uruguay">
-// Copyright (c) Programación II. Derechos reservados.
-// </copyright>
-//------------------------------------------------------------------------------
-
-using ClassLibrary;
+using System;
+using Gates;
 using NUnit.Framework;
 
-namespace Tests
+namespace Tests;
+
+public class Tests
 {
-    /// <summary>
-    /// Prueba de la clase <see cref="Train"/>.
-    /// </summary>
-    [TestFixture]
-    public class TrainTests
+    [Test] 
+    public void TestAND()  // Testeamos la puerta lógica AND
     {
-        /// <summary>
-        /// El tren para probar.
-        /// </summary>
-        private Train train;
+        Assert.That(ANDGates.Evaluar(true, true), Is.EqualTo(true));
+        Assert.That(ANDGates.Evaluar(true, false), Is.EqualTo(false));
+        Assert.That(ANDGates.Evaluar(false, true), Is.EqualTo(false));
+        Assert.That(ANDGates.Evaluar(false, false), Is.EqualTo(false));
 
-        /// <summary>
-        /// Crea un tren para probar.
-        /// </summary>
-        [SetUp]
-        public void Setup()
-        {
-            this.train = new Train();
-        }
-
-        /// <summary>
-        /// Prueba que el tren arranque.
-        /// </summary>
-        [Test]
-        public void StartTrainTest()
-        {
-            Assert.NotNull(this.train);
-            this.train.StartEngines();
-            Assert.True(this.train.IsEngineStarted);
-        }
-
-        /// <summary>
-        /// Prueba que el tren se detenga.
-        /// </summary>
-        [Test]
-        public void StopTrainTest()
-        {
-            Assert.NotNull(this.train);
-            this.train.StartEngines();
-            this.train.StopEngines();
-            Assert.False(this.train.IsEngineStarted);
-        }
     }
+
+    [Test]
+    public void TestOR()// Testeamos la puerta lógica OR
+    {
+        Assert.That(ORGates.Evaluar(true, true), Is.EqualTo(true));
+        Assert.That(ORGates.Evaluar(true, false), Is.EqualTo(true));
+        Assert.That(ORGates.Evaluar(false, true), Is.EqualTo(true));
+        Assert.That(ORGates.Evaluar(false, false), Is.EqualTo(false));
+    }
+    [Test]
+
+    public void TestNOT()// Testeamos la puerta lógica NOT
+    {
+        Assert.That(NOTGates.Evaluar(true), Is.EqualTo(false));
+        Assert.That(NOTGates.Evaluar(false), Is.EqualTo(true));
+    }
+
 }
+
